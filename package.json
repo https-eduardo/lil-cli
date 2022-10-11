@@ -1,0 +1,16 @@
+{
+  "name": "lil-cli",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "author": "@https-eduardo",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
