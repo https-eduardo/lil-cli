@@ -14,8 +14,10 @@ You just need to register the commands that your application will have and confi
 For example:
 ```js
 import CLI from 'lil-cli';
-// Initialize passing the process arguments
-const cli = new CLI(process.argv);
+// This path will be optimized in a next version
+import CLIEvents from 'lil-cli/dist/events';
+// Initialize the CLI class
+const cli = new CLI();
 
 // Create command config
 const config = {
@@ -27,16 +29,18 @@ const config = {
         }
     ]
 }
+
+// If you want, you can register an event, for any purpose.
+// CLIEvents.on('onTriggerCommand', () => {
+//     console.log('An command was triggered.')
+// });
+
 // Register command
 cli.registerCommand('say', config, (err, params) => {
+    // Emitting an event
+    // CLIEvents.emit('onTriggerCommand')
     console.log(params.message);
 });
-
-
-// If you want, you can register an callback if no command is found.
-// cli.on('notFindAnyCommand', () => {
-//     console.log('No command found.')
-// });
 
 cli.listen();
 ```
